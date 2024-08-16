@@ -13,3 +13,11 @@ Este projeto utiliza a API do GitHub para buscar informações de usuários e se
 - **Frontend:** CSS, HTML e JavaScript
 - **API:** GitHub API
 - **Requisições HTTP:** Usando Fetch
+
+## Captura de Tela
+
+![Captura de Tela do Projeto](./src/img/print1.png)
+
+## GitHub Pages
+
+Este projeto está hospedado no GitHub Pages. Você pode acessá-lo [aqui](https://kevmartinsdev.github.io/projeto-fetch-github-api/).

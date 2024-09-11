@@ -6,7 +6,14 @@ Este projeto utiliza a API do GitHub para buscar informações de usuários e se
 
 - Busca de usuários no GitHub.
 - Exibição do nome do usuário e avatar.
+- Exibição da Bio.
+- Exibição do número de seguidores.
 - Listagem dos repositórios do usuário com links diretos.
+- Exibição da quantidade de forks.
+- Exibição da quantidade de estrelas.
+- Exibição da quantidade de watchers.
+- Linguagem principal utilizada no repositório.
+- Eventos do Usuário, PushEvents e CreateEvents. 
 
 ## Tecnologias Utilizadas
 

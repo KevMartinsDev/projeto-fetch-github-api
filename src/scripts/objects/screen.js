@@ -4,8 +4,16 @@ const screen = {
         this.userProfile.innerHTML =   `<div class="info">
                                             <img src="${user.avatarUrl}" alt="Foto do perfil  do usuário" />
                                             <div class="data">
-                                                <h1>${user.name ?? 'Não possui nome cadastrado 😢'}</h1>
+                                                <h1>${user.name ?? 'Não possui nome cadastrado 😢'} / ${user.userLogin}</h1>
                                                 <p>${user.bio ?? 'Usuário não possui bio cadastrado 😢'}</p>
+                                                <div class="followers">
+                                                    <i class="fa-solid fa-users"></i>
+                                                    <p>Seguidores: ${user.followers ?? '00'}</p>
+                                                </div>
+                                                <div class="following">
+                                                    <i class="fa-solid fa-user-group"></i>
+                                                    <p>Seguindo: ${user.following ?? '00'}</p>
+                                                </div>
                                             </div>
                                         </div>`
 
@@ -18,6 +26,28 @@ const screen = {
                                                 <ul>${repositoriesItens}</ul>
                                             </div>`
         }
+        let eventItens = ''
+        let filteredEvents = user.events.filter(eventFilter => {
+            return eventFilter.type === "CreateEvent" || eventFilter.type === "PushEvent"
+        }).slice(0, 10)
+
+        filteredEvents.forEach(eventFilter => {
+            if (eventFilter.type === "PushEvent") {
+                eventItens += `<li><span class="bolt">${eventFilter.repo.name}</span> - ${eventFilter.payload.commits[0].message ?? 'Sem mensagem de commit'}</li>`
+            } else if(eventFilter.type === "CreateEvent") {
+                eventItens += `<li>${eventFilter.repo.name} - Sem mensagem de commit</li>`
+            }
+        })
+
+        if(filteredEvents.length > 0) {
+            this.userProfile.innerHTML +=  `<div class="events">
+                                                <h2>Eventos</h2>
+                                                <ul>${eventItens}</ul>
+                                            </div>`
+        } else {
+            console.log('Nenhum evento do tipo CreateEvent ou PushEvent foi encontrado.');
+        }
+
     },
     renderNotFound(user){
         this.userProfile.innerHTML = "<h3>Usuário não encontrado</h3>"

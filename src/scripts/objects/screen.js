@@ -18,7 +18,30 @@ const screen = {
                                         </div>`
 
         let repositoriesItens = ''
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}"target="_blank">${repo.name}</a></li>`)
+        user.repositories.forEach(repo => repositoriesItens += `<li>
+                                                                    <a href="${repo.html_url}"target="_blank">
+                                                                        <p class="repos-name">${repo.name}</p>
+                                                                        <ul class="icons">
+                                                                            <li>
+                                                                                <i class="fa-solid fa-utensils"></i>
+                                                                                <p>${repo.forks_count}</p>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa-solid fa-star"></i>
+                                                                                <p>${repo.stargazers_count}</p>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa-solid fa-eye"></i>
+                                                                                <p>${repo.watchers_count}</p>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa-solid fa-code"></i>
+                                                                                <p>${repo.language}</p>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </a>
+                                                                    
+                                                                </li>`)
 
         if(user.repositories.length > 0) {
             this.userProfile.innerHTML +=  `<div class="repositories section">
@@ -26,6 +49,7 @@ const screen = {
                                                 <ul>${repositoriesItens}</ul>
                                             </div>`
         }
+        
         let eventItens = ''
         let filteredEvents = user.events.filter(eventFilter => {
             return eventFilter.type === "CreateEvent" || eventFilter.type === "PushEvent"

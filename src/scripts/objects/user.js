@@ -16,6 +16,7 @@ const user = {
     },
     setRepositories(repositories){
         this.repositories = repositories
+        console.log(repositories)
     },
     setEvents(events){
         this.events = events

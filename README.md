@@ -22,8 +22,12 @@ Este projeto utiliza a API do GitHub para buscar informações de usuários e se
 - **Requisições HTTP:** Usando Fetch
 
 ## Captura de Tela
-
-![Captura de Tela do Projeto](./src/img/print1.png)
+### Buscar Usuário
+![Captura de Tela do Projeto](./src/img/img1.png)
+### Repositórios
+![Captura de Tela do Projeto](./src/img/img2.png)
+### Ultimos Eventos
+![Captura de Tela do Projeto](./src/img/img3.png)
 
 ## GitHub Pages
 
